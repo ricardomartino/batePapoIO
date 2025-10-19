@@ -1,23 +1,12 @@
-// Conecta Usuário ao Servidor
 const socket = io()
+const inputNome = document.getElementById('inputNome')
+const btnLogar = document.getElementById('btnLogar')
 
-const mensagens = document.getElementById('mensagens')
-const msgInput = document.getElementById('msgInput')
-const btnEnviar = document.getElementById('btnEnviar')
-
-btnEnviar.addEventListener('click', () => {
-    const msg = msgInput.value.trim()
-    if(msg !== '') {
-        socket.emit('mensagemEnviada', msg)
-        msgInput.value = ''
+btnLogar.addEventListener('click', () => {
+    const nomeUsuario = inputNome.value.trim()
+    if (nomeUsuario !== '') {
+        socket.emit('login', nomeUsuario)
+        sessionStorage.setItem('nomeUsuario', nomeUsuario)
+        window.location.href = '/chat'
     }
-})
-
-socket.on('mensagemEnviada', (msg) => {
-    const conteudo = document.createElement('p')
-    conteudo.textContent = msg
-    mensagens.append(conteudo)
-    setTimeout(() => {
-        mensagens.scrollTop = mensagens.scrollHeight
-    }, 0)
 })

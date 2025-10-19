@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse Chat</title>
+    <title>BatePapoIO</title>
 </head>
 <body>
-    <h1 class="titulo">BatePapoIO!</h1>
-    <div class="chat">
-        <div id="mensagens"></div>
-        <div class="inputs">
-            <input id="msgInput" placeholder="Mensagem...">
-            <button id="btnEnviar">
-                <img class="btnLogo" src="images/ICON_ENVIAR.png" alt="Logo Enviar Mensagem">
-            </button>
-        </div>
-    </div>
+    <h1>Digite seu Nome:</h1>
+    <input id="inputNome" placeholder="Nome...">
+    <button id="btnLogar">Logar</button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>

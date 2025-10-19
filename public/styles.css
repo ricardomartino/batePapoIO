@@ -17,10 +17,10 @@ body {
 .chat {
     background-color: #30314F;
     position: relative;
-    width: 500px;
+    width: 300px;
     height: 440px;
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 15px;
     padding-bottom: 60px;
     overflow-y: auto;  
 }
@@ -43,7 +43,7 @@ body {
     border: 2px solid;
     border-color: #7673AB;
     padding: 10px;
-    width: 90%;
+    width: 75%;
     outline: none;
     color: white;
 }
@@ -60,7 +60,7 @@ body {
     align-items: center;
     border-radius: 20px;
     border-color: #7673AB;
-    width: 10%;
+    width: 15%;
     outline: none;
 }
 

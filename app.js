@@ -1,6 +1,7 @@
 const express = require('express')
 const { Server } = require('socket.io')
 const http = require('http')
+const path = require('path')
 
 const app = express()
 const PORT = 8001
@@ -10,16 +11,26 @@ const serverIO = new Server(server)
 
 app.use(express.static('public'))
 
+app.get('/chat', (request, response) => {
+    response.sendFile(path.join(__dirname, 'public', 'chat.html'))
+})
+
+const usuarios = {}
+
 serverIO.on('connection', (socket) => {
     console.log(`Usuário ${socket.id} conectado!`)
 
-    socket.on('disconnect', () => {
-        console.log(`Usuário ${socket.id} desconectado!`)
+    socket.on('login', (nomeUsuario) => {
+        usuarios[socket.id] = nomeUsuario
     })
 
-    socket.on('mensagemEnviada', (msg) => {
-        serverIO.emit('mensagemEnviada', msg)
-        console.log(`Usuário: ${socket.id} Mensagem: ${msg}`)
+    socket.on('mensagemEnviada', ({ nomeUsuario, msg }) => {
+        serverIO.emit('mensagemEnviada', { nomeUsuario, msg })
+        console.log(`${nomeUsuario}: ${msg}`)
+    })
+
+    socket.on('disconnect', () => {
+        console.log(`Usuário ${socket.id} desconectado!`)
     })
 })
 
