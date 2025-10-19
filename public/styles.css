@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat {
+    background-color: #30314F;
+    position: relative;
+    width: 500px;
+    height: 440px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-bottom: 60px;
+    overflow-y: auto;  
+}
+
+.inputs {
+    background-color: #30314F;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.inputs > #msgInput{
+    background-color: #47466E;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #7673AB;
+    padding: 10px;
+    width: 90%;
+    outline: none;
+    color: white;
+}
+
+#msgInput::placeholder {
+    color: #747798;
+    font-weight: bold;
+}
+
+#btnEnviar {
+    background-color: #47466E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border-color: #7673AB;
+    width: 10%;
+    outline: none;
+}
+
+.btnLogo {
+    color: #747798;
+    width: 20px;
+    height: 20px;
+}
+
+#mensagens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 45px;
+    padding: 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#mensagens > p {
+    background-color: #48486E;
+    color: white;
+    font-family: sans-serif;
+    font-size: 13px;
+    border-radius: 12px;
+    padding: 10px;
+    max-width: 200px;
+    width: fit-content;
+    word-break: break-word;
+    margin-top: 0px;
+}
+
